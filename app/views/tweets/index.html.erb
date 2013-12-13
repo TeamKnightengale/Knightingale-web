@@ -1,0 +1,30 @@
+<%= form_tag tweets_path, :method => 'get' do %> 
+  <div class="row">
+      <div class="small-9 columns">
+        <%= text_field_tag :query, params[:query] %>
+      </div>
+      
+      <div class="small-3 columns">
+          <%= submit_tag "Search", :name => nil, :class => "button small left" %>
+      </div>
+  </div>
+<% end %>
+
+<div class="row text-center clearfix">
+  <table>
+     <thead>
+    <tr>
+      <th width="200" class="text-center"><h2 class="text-center">Tweets</h2></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tweets.each do |tweet| %>
+      <tr>
+        <td><%= tweet.text %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+</div>
